@@ -1,0 +1,6 @@
+*.deb
+linux
+*.changes
+*.buildinfo
+tools
+includes
