@@ -32,7 +32,6 @@ if [ ! -d usr/include/openssl ] ; then
   [ ! -d usr/include/openssl ] && echo "unable to get libraries" && exit 1
   rm libssl-dev_1.1.1d-0+deb10u3_armhf.deb
 fi
-exit
 
 #if the repository has already been cloned, update it.  otherwise, clone it
 if [ -d "$DIR/linux" ] ; then
