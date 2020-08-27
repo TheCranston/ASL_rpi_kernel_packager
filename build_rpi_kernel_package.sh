@@ -70,7 +70,7 @@ make clean
 KERNEL=kernel
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig
 $DIR/customizations.sh
-#make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bindeb-pkg
+make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bindeb-pkg
 
 make clean
 [ -d debian ] && rm -rf debian
@@ -78,7 +78,7 @@ make clean
 KERNEL=kernel7
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
 $DIR/customizations.sh
-#make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bindeb-pkg
+make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bindeb-pkg
 
 make clean
 [ -d debian ] && rm -rf debian
@@ -86,7 +86,7 @@ make clean
 KERNEL=kernel7l
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2711_defconfig
 $DIR/customizations.sh
-#make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bindeb-pkg
+make -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bindeb-pkg
 
 #revert the Makefile back to the original
 git checkout Makefile
