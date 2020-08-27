@@ -1,5 +1,5 @@
---- builddeb.orig	2020-08-27 08:18:55.595267912 -0400
-+++ builddeb	2020-08-27 08:20:47.951267912 -0400
+--- builddeb.orig	2020-08-27 15:29:17.817027491 -0400
++++ builddeb	2020-08-27 15:30:23.385795474 -0400
 @@ -60,6 +60,8 @@
  	packagename=user-mode-linux-$version
  fi
@@ -18,7 +18,7 @@
  esac
  
  BUILD_DEBUG=$(if_enabled_echo CONFIG_DEBUG_INFO Yes)
-@@ -164,6 +166,16 @@
+@@ -164,6 +166,43 @@
  	chmod 755 "$tmpdir/DEBIAN/$script"
  done
  
