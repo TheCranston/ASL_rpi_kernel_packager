@@ -36,6 +36,7 @@ if [ ! -f lib/arm-linux-gnueabihf/libc.so.6 ] ; then
   wget http://raspbian.raspberrypi.org/raspbian/pool/main/g/glibc/libc6_2.28-10+rpi1_armhf.deb
   ar p libc6_2.28-10+rpi1_armhf.deb data.tar.xz | tar xJf -
   [ ! -f lib/arm-linux-gnueabihf/libc.so.6 ] && echo "unable to get libraries" && exit 1
+  rm libc6_2.28-10+rpi1_armhf.deb
 fi
 if [ ! -f usr/include/ncurses.h ] ; then
   wget http://raspbian.raspberrypi.org/raspbian/pool/main/n/ncurses/libncurses-dev_6.1+20181013-2+deb10u2_armhf.deb
