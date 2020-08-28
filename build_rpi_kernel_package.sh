@@ -37,7 +37,6 @@ if [ ! -f lib/arm-linux-gnueabihf/libc.so.6 ] ; then
   ar p libc6_2.28-10+rpi1_armhf.deb data.tar.xz | tar xJf -
   [ ! -f lib/arm-linux-gnueabihf/libc.so.6 ] && echo "unable to get libraries" && exit 1
 fi
-exit
 
 #if the repository has already been cloned, update it.  otherwise, clone it
 if [ -d "$DIR/linux" ] ; then
