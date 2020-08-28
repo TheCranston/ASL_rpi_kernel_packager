@@ -1,5 +1,5 @@
---- builddeb.orig	2020-08-27 15:29:17.817027491 -0400
-+++ builddeb	2020-08-27 15:30:23.385795474 -0400
+--- builddeb.orig	2020-08-27 23:19:46.901916020 -0400
++++ builddeb	2020-08-27 23:20:11.453916020 -0400
 @@ -60,6 +60,8 @@
  	packagename=user-mode-linux-$version
  fi
@@ -18,7 +18,7 @@
  esac
  
  BUILD_DEBUG=$(if_enabled_echo CONFIG_DEBUG_INFO Yes)
-@@ -164,6 +166,43 @@
+@@ -164,6 +166,49 @@
  	chmod 755 "$tmpdir/DEBIAN/$script"
  done
  
@@ -58,6 +58,12 @@
 +arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.sortextable.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include -I./tools/include   -o scripts/sortextable scripts/sortextable.c   
 +arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.asn1_compiler.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include -I./include   -o scripts/asn1_compiler scripts/asn1_compiler.c   
 +arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.extract-cert.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include  -I../includes/usr/include -I../includes/usr/include/arm-linux-gnueabihf -I../includes/usr/lib/arm-linux-gnueabihf -o scripts/extract-cert scripts/extract-cert.c  -lcrypto -pthread -ldl
++arm-linux-gnueabihf-gcc -Wp,-MD,scripts/mod/.mk_elfconfig.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89         -o scripts/mod/mk_elfconfig scripts/mod/mk_elfconfig.c
++arm-linux-gnueabihf-gcc -Wp,-MD,scripts/mod/.modpost.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89       -c -o scripts/mod/modpost.o scripts/mod/modpost.c
++arm-linux-gnueabihf-gcc -Wp,-MD,scripts/mod/.file2alias.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89       -c -o scripts/mod/file2alias.o scripts/mod/file2alias.c
++arm-linux-gnueabihf-gcc -Wp,-MD,scripts/mod/.sumversion.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89       -c -o scripts/mod/sumversion.o scripts/mod/sumversion.c
++arm-linux-gnueabihf-gcc   -o scripts/mod/modpost scripts/mod/modpost.o scripts/mod/file2alias.o scripts/mod/sumversion.o
++arm-linux-gnueabihf-gcc -Wp,-MD,scripts/mod/.mk_elfconfig.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89         -o scripts/unifdef scripts/unifdef.c
 +
  # Build kernel header package
  (cd $srctree; find . -name Makefile\* -o -name Kconfig\* -o -name \*.pl) > "$objtree/debian/hdrsrcfiles"
