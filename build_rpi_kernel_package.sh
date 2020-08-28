@@ -20,10 +20,10 @@ export PATH="$PATH:$PWD/tools/arm-bcm2708/arm-linux-gnueabihf/bin"
 #get the required suplemental libraries for arm
 [ -d includes ] || mkdir includes
 cd includes
-if [ ! -d usr/include/arm-linux-gnueabihf ] ; then
+if [ ! -f usr/include/memory.h ] ; then
   wget http://raspbian.raspberrypi.org/raspbian/pool/main/g/glibc/libc6-dev_2.28-10+rpi1_armhf.deb
   ar p libc6-dev_2.28-10+rpi1_armhf.deb data.tar.xz | tar xJf -
-  [ ! -d usr/include/arm-linux-gnueabihf ] && echo "unable to get libraries" && exit 1
+  [ ! -f usr/include/memory.h ] && echo "unable to get libraries" && exit 1
   rm libc6-dev_2.28-10+rpi1_armhf.deb
 fi
 if [ ! -d usr/include/openssl ] ; then
@@ -32,6 +32,12 @@ if [ ! -d usr/include/openssl ] ; then
   [ ! -d usr/include/openssl ] && echo "unable to get libraries" && exit 1
   rm libssl-dev_1.1.1d-0+deb10u3_armhf.deb
 fi
+if [ ! -f lib/arm-linux-gnueabihf/libc.so.6 ] ; then
+  wget http://raspbian.raspberrypi.org/raspbian/pool/main/g/glibc/libc6_2.28-10+rpi1_armhf.deb
+  ar p libc6_2.28-10+rpi1_armhf.deb data.tar.xz | tar xJf -
+  [ ! -f lib/arm-linux-gnueabihf/libc.so.6 ] && echo "unable to get libraries" && exit 1
+fi
+exit
 
 #if the repository has already been cloned, update it.  otherwise, clone it
 if [ -d "$DIR/linux" ] ; then

@@ -57,7 +57,7 @@
 +arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.recordmcount.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include    -o scripts/recordmcount scripts/recordmcount.c   
 +arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.sortextable.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include -I./tools/include   -o scripts/sortextable scripts/sortextable.c   
 +arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.asn1_compiler.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include -I./include   -o scripts/asn1_compiler scripts/asn1_compiler.c   
-+arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.extract-cert.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include  -I../includes/usr/include -I../includes/usr/include/arm-linux-gnueabihf -L../includes/usr/lib/arm-linux-gnueabihf -o scripts/extract-cert scripts/extract-cert.c  -lcrypto -pthread -ldl
++arm-linux-gnueabihf-gcc -Wp,-MD,scripts/.extract-cert.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer -std=gnu89     -I./tools/include  -I../includes/usr/include -I../includes/usr/include/arm-linux-gnueabihf -I../includes/usr/lib/arm-linux-gnueabihf -o scripts/extract-cert scripts/extract-cert.c  -lcrypto -pthread -ldl
 +
  # Build kernel header package
  (cd $srctree; find . -name Makefile\* -o -name Kconfig\* -o -name \*.pl) > "$objtree/debian/hdrsrcfiles"
