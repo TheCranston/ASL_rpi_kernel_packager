@@ -44,7 +44,6 @@ if [ ! -f usr/include/ncurses.h ] ; then
   [ ! -f usr/include/ncurses.h ] && echo "unable to get libraries" && exit 1
   rm libncurses-dev_6.1+20181013-2+deb10u2_armhf.deb
 fi
-exit
 
 #if the repository has already been cloned, update it.  otherwise, clone it
 if [ -d "$DIR/linux" ] ; then
