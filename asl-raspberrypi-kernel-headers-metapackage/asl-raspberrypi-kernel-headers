@@ -13,8 +13,8 @@ Maintainer: Adam Paul <adamjpaul@gmail.com>
 Depends: 
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
-Provides: raspberrypi-kernel
-Replaces: raspberrypi-kernel
+Provides: raspberrypi-kernel-headers
+Replaces: raspberrypi-kernel-headers
 Architecture: armhf
 # Multi-Arch: <one of: foreign|same|allowed>
 # Copyright: <copyright file; defaults to GPL2>
@@ -24,4 +24,4 @@ Architecture: armhf
 # Links: <pair of space-separated paths; First is path symlink points at, second is filename of link>
 # Files: <pair of space-separated paths; First is file to include, second is destination>
 #  <more pairs, if there's more than one file to include. Notice the starting space>
-Description: asl-raspberripi-kernel metapackage
+Description: asl-raspberripi-kernel-headers metapackage
