@@ -1,0 +1,11 @@
+--- mkdebian.orig	2020-08-29 10:41:02.868288699 -0400
++++ mkdebian	2020-08-29 10:43:06.348288699 -0400
+@@ -214,7 +214,7 @@
+ 
+ build:
+ 	\$(MAKE) KERNELRELEASE=${version} ARCH=${ARCH} \
+-	KBUILD_BUILD_VERSION=${revision} -f \$(srctree)/Makefile
++	KBUILD_BUILD_VERSION=${revision} -f \$(srctree)/Makefile zImage modules dtbs
+ 
+ binary-arch:
+ 	\$(MAKE) KERNELRELEASE=${version} ARCH=${ARCH} \
