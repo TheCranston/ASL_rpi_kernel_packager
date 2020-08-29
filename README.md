@@ -15,3 +15,20 @@ Where {tag} is the tagged version of the RaspberryOS kernel repository you'd lik
 As of this writing, the most current tag is raspberrypi-kernel_1.20200811-1
 
 
+# Building with docker
+```
+docker run -it debian:buster /bin/bash
+
+apt update && apt install -y build-essential git equivs \
+wget \
+apt-utils \
+flex \
+bison \
+bc rsync kmod cpio libssl-dev:native
+
+git clone https://github.com/ajpaul25/ASL_rpi_kernel_packager.git
+
+cd ASL_rpi_kernel_packager
+./build_rpi_kernel_package.sh raspberrypi-kernel_1.20200811-1
+```
+
