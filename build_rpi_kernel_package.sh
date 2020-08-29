@@ -115,7 +115,7 @@ sed -i "s/^Version:.*/Version: $TAGVERS/g" asl-raspberrypi-kernel-metapackage/as
 sed -i "s/^Version:.*/Version: $TAGVERS/g" asl-raspberrypi-kernel-headers-metapackage/asl-raspberrypi-kernel-headers
 
 #build metapackages
-equivs-build asl-raspberrypi-kernel-metapackage/asl-raspberrypi-kernel
+equivs-build --arch armhf asl-raspberrypi-kernel-metapackage/asl-raspberrypi-kernel
 equivs-build --arch armhf asl-raspberrypi-kernel-headers-metapackage/asl-raspberrypi-kernel-headers
 
 #reset metapackage control files
