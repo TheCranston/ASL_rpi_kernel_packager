@@ -16,10 +16,10 @@
  else
 -	cp System.map "$tmpdir/boot/System.map-$version"
 -	cp $KCONFIG_CONFIG "$tmpdir/boot/config-$version"
-+	cp arch/arm/boot/dts/*.dtb "$tmpdir/boot/"
-+	mkdir "$tmpdir/boot/overlays"
-+	cp arch/arm/boot/dts/overlays/*.dtb* "$tmpdir/boot/overlays/"
-+	cp arch/arm/boot/dts/overlays/README "$tmpdir/boot/overlays/"
++	mkdir -p "../boot/overlays"
++	cp arch/arm/boot/dts/*.dtb "../boot/"
++	cp arch/arm/boot/dts/overlays/*.dtb* "../boot/overlays/"
++	cp arch/arm/boot/dts/overlays/README "../boot/overlays/"
  fi
  cp "$($MAKE -s -f $srctree/Makefile image_name)" "$tmpdir/$installed_image_path"
  

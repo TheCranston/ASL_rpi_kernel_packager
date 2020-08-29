@@ -124,5 +124,14 @@ sed -i "s/^Depends:.*/Depends: /g" asl-raspberrypi-kernel-headers-metapackage/as
 sed -i "s/^Version:.*/Version: /g" asl-raspberrypi-kernel-metapackage/asl-raspberrypi-kernel
 sed -i "s/^Version:.*/Version: /g" asl-raspberrypi-kernel-headers-metapackage/asl-raspberrypi-kernel-headers
 
+#insert dtbs into the "metapackage"
+ar x asl-raspberrypi-kernel_1.20200811-1_armhf.deb data.tar.xz
+unxz data.tar.xz
+tar --append --file data.tar ./boot/
+xz data.tar
+ar r asl-raspberrypi-kernel_1.20200811-1_armhf.deb data.tar.xz
+rm data.tar.xz
+rm -rf boot
+
 #return back to the original directory
 cd $ORIG_DIR
